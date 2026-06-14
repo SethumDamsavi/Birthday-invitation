@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion'
-import { Crown, Music, Utensils, Sparkles, Clock } from 'lucide-react'
+import { Crown, Music, Utensils, PartyPopper, Clock } from 'lucide-react'
 
 export default function Timeline() {
   const events = [
     { time: '5:30 PM', title: 'Arrival & Welcome', desc: 'Step onto the red carpet and take photos', icon: Crown },
     { time: '6:30 PM', title: 'The Grand Waltz', desc: 'A magical first dance', icon: Music },
     { time: '8:00 PM', title: 'Dinner Service', desc: 'A delicious feast with family & friends', icon: Utensils },
-    { time: '9:30 PM', title: 'Let\'s Party!', desc: 'Hit the dance floor and celebrate', icon: Sparkles },
+    { time: '9:30 PM', title: 'Let\'s Party!', desc: 'Hit the dance floor and celebrate', icon: PartyPopper },
     { time: '12:00 AM', title: 'Farewell', desc: 'A beautiful goodbye to an unforgettable night', icon: Clock },
   ]
 
