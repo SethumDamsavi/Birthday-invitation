@@ -21,13 +21,6 @@ export default function EnvelopeIntro({ onClick }) {
     <div className={`envelope-intro-screen ${closing ? 'closing' : ''}`}>
       <img src="/images/floral-decoration.png" className="intro-floral-top" alt="floral top" />
       <img src="/images/floral-bottom-new.png" className="intro-floral-bottom" alt="floral bottom" />
-      
-      <img src="/images/butterfly.png" className="intro-butterfly-1" alt="butterfly" />
-      <img src="/images/butterfly.png" className="intro-butterfly-2" alt="butterfly" />
-      <img src="/images/butterfly.png" className="intro-butterfly-3" alt="butterfly" />
-      <img src="/images/butterfly.png" className="intro-butterfly-4" alt="butterfly" />
-      <img src="/images/butterfly.png" className="intro-butterfly-5" alt="butterfly" />
-      <img src="/images/butterfly.png" className="intro-butterfly-6" alt="butterfly" />
 
       <motion.div 
         className="intro-text-section"

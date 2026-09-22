@@ -3,6 +3,7 @@ import './App.css'
 import CustomCursor from './components/CustomCursor'
 import EnvelopeIntro from './components/EnvelopeIntro'
 import FloatingPetals from './components/FloatingPetals'
+import WhiteButterflies from './components/WhiteButterflies'
 import HeroSection from './components/HeroSection'
 import QuoteSection from './components/QuoteSection'
 import MusicPlayer from './components/MusicPlayer'
@@ -28,6 +29,7 @@ function App() {
       <>
         <CustomCursor />
         <div className="mesh-bg" />
+        <WhiteButterflies count={16} mode="white" />
         <FloatingPetals />
         <EnvelopeIntro onClick={handleEnvelopeClick} />
       </>
@@ -38,6 +40,7 @@ function App() {
     <>
       <CustomCursor />
       <div className="mesh-bg" />
+      <WhiteButterflies count={20} mode="pink-and-white" />
       <FloatingPetals />
       
       <div className="paper-strip-wrapper">

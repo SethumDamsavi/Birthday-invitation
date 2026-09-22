@@ -61,13 +61,14 @@ body {
 .custom-cursor {
   position: fixed; top: 0; left: 0; width: 6px; height: 6px;
   background-color: var(--pink-600); border-radius: 50%;
-  pointer-events: none; z-index: 10000;
+  pointer-events: none; z-index: 100005;
 }
 .cursor-ring {
   position: fixed; top: 0; left: 0; width: 30px; height: 30px;
   border: 1px solid rgba(236, 72, 153, 0.4); border-radius: 50%;
-  pointer-events: none; z-index: 9999;
+  pointer-events: none; z-index: 100004;
 }
+
 a, button, input, select, textarea { cursor: none; }
 
 /* ---------- Background ---------- */
