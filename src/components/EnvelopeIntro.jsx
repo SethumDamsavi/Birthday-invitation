@@ -108,6 +108,15 @@ export default function EnvelopeIntro({ onClick }) {
             </svg>
           </div>
         </div>
+
+        <motion.p 
+          className="envelope-click-prompt"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: opened ? 0 : 0.8 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+        >
+          Click to open
+        </motion.p>
       </motion.div>
     </div>
   )

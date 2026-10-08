@@ -56,12 +56,12 @@ export default function EventDetails() {
           <p className="event-time-minimal" style={{ color: 'var(--text-medium)', fontSize: '1.5rem', marginBottom: '20px' }}>6:00 PM</p>
           
           <div style={{ background: 'var(--pink-50)', padding: '15px 25px', borderRadius: '20px', width: '100%', marginBottom: '30px' }}>
-            <p className="event-location-minimal" style={{ margin: 0, color: 'var(--pink-600)', fontWeight: '600' }}>THE GRAND BALLROOM</p>
-            <p className="event-location-minimal" style={{ margin: 0, marginTop: '5px', fontSize: '0.85rem' }}>456 Party Street</p>
+            <p className="event-location-minimal" style={{ margin: 0, color: 'var(--pink-600)', fontWeight: '700', letterSpacing: '1px' }}>THE FALCON</p>
+            <p className="event-location-minimal" style={{ margin: 0, marginTop: '5px', fontSize: '0.88rem', color: 'var(--text-medium)' }}>No. 50, Radawana Road, Yakkala</p>
           </div>
 
           <motion.a 
-            href="https://www.google.com/maps/dir//Kethumathiya+Banquet+hall,+Pub+%26+Restaurant,+Aluthgama-Wigoda+Road,+Bemmulla+Rd,+Yakkala/@7.125096,80.0423143,3291m/data=!3m2!1e3!4b1!4m8!4m7!1m0!1m5!1m1!1s0x3ae2fd6522c772c3:0xe4c3748406b988e4!2m2!1d80.0330847!2d7.1093068?entry=ttu&g_ep=EgoyMDI2MDYxMC4wIKXMDSoASAFQAw%3D%3D" 
+            href="https://share.google/xVZcxtFpC0BzF4ttc" 
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05, boxShadow: '0 10px 25px rgba(236,72,153,0.4)' }}
