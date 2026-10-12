@@ -63,17 +63,31 @@ export default function PhotoGallery() {
             <QrCode size={40} color="var(--pink-500)" strokeWidth={1.5} />
             <h3 style={{ margin: 0, fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.8rem, 3vw, 2.8rem)', color: 'var(--pink-600)' }}>View Full Gallery</h3>
           </div>
-          <p style={{ margin: 0, fontFamily: 'var(--font-sans)', fontSize: 'clamp(0.9rem, 1.5vw, 1.1rem)', color: 'var(--text-medium)', textTransform: 'uppercase', letterSpacing: '1px' }}>
-            Scan to see all memories
+          <p style={{ margin: '0 0 20px 0', fontFamily: 'var(--font-sans)', fontSize: 'clamp(0.9rem, 1.5vw, 1.1rem)', color: 'var(--text-medium)', textTransform: 'uppercase', letterSpacing: '1px' }}>
+            Scan or tap to see all memories
           </p>
+          <a
+            href="https://photoshoot-six.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="qr-action-btn"
+          >
+            Open Gallery
+            <span style={{ fontSize: '1.2em', lineHeight: 1 }}>↗</span>
+          </a>
         </div>
         
-        <motion.div 
+        <motion.a 
+          href="https://photoshoot-six.vercel.app/"
+          target="_blank"
+          rel="noopener noreferrer"
           className="qr-image-wrapper"
+          title="Scan with phone camera or tap to open photoshoot-six.vercel.app"
           whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.98 }}
         >
-          <img src="/images/qr-code.png" alt="QR Code" style={{ width: '100%', display: 'block' }} />
-        </motion.div>
+          <img src="/images/qr-code.png" alt="Scan to view full gallery" style={{ width: '100%', display: 'block' }} />
+        </motion.a>
       </motion.div>
 
       {/* Lightbox */}
