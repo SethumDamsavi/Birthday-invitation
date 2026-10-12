@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 
-export default function WhiteButterflies({ count = 20, mode = 'pink-and-white' }) {
+export default function WhiteButterflies({ count = 3, mode = 'pink-and-white' }) {
   const canvasRef = useRef(null)
 
   useEffect(() => {
@@ -85,27 +85,27 @@ export default function WhiteButterflies({ count = 20, mode = 'pink-and-white' }
 
       reset(initX, initY) {
         this.x = initX !== undefined ? initX : Math.random() * width
-        this.y = initY !== undefined ? initY : height + Math.random() * 150
+        this.y = initY !== undefined ? initY : height + 20 + Math.random() * 50
 
-        // Speed & trajectory
-        this.baseSpeed = Math.random() * 1.2 + 0.8
-        this.vx = (Math.random() - 0.5) * 1.5
-        this.vy = -(Math.random() * 1.4 + 1.1)
+        // Speed & trajectory: serene, dreamy, graceful flight
+        this.baseSpeed = Math.random() * 0.8 + 0.7
+        this.vx = (Math.random() - 0.5) * 1.2
+        this.vy = -(Math.random() * 0.9 + 0.8)
 
-        // Appearance
-        this.size = Math.random() * 14 + 18 // 18 to 32px scale
-        this.opacity = Math.random() * 0.3 + 0.7 // 0.7 to 1.0
+        // Appearance: elegant, distinct scale
+        this.size = Math.random() * 10 + 22 // 22 to 32px scale
+        this.opacity = Math.random() * 0.2 + 0.8 // 0.8 to 1.0
         this.angle = 0
 
         // Flapping rhythm
         this.flapTime = Math.random() * 10
-        this.flapSpeed = Math.random() * 0.25 + 0.22
+        this.flapSpeed = Math.random() * 0.22 + 0.18
         this.glideDuration = 0
         this.isGliding = false
 
         // Natural wander oscillation
         this.wanderPhase = Math.random() * 100
-        this.wanderSpeed = Math.random() * 0.02 + 0.01
+        this.wanderSpeed = Math.random() * 0.018 + 0.012
 
         this.sparkleTimer = 0
       }
@@ -158,15 +158,15 @@ export default function WhiteButterflies({ count = 20, mode = 'pink-and-white' }
         }
 
         // Wrap around / respawn when moving off screen
-        const padding = 80
+        const padding = 70
         if (
           this.y < -padding ||
           this.x < -padding ||
           this.x > width + padding
         ) {
           this.reset(
-            Math.random() * width,
-            height + Math.random() * 100
+            Math.random() * (width - 100) + 50,
+            height + 20 + Math.random() * 50
           )
         }
       }
@@ -341,9 +341,9 @@ export default function WhiteButterflies({ count = 20, mode = 'pink-and-white' }
       }
     }
 
-    // Initialize flock
+    // Initialize exactly the requested number of butterflies (default 3)
     const butterflies = []
-    const totalButterflies = Math.max(count, Math.min(24, Math.floor(width / 65)))
+    const totalButterflies = Math.max(1, count)
 
     for (let i = 0; i < totalButterflies; i++) {
       let type = null
@@ -352,13 +352,29 @@ export default function WhiteButterflies({ count = 20, mode = 'pink-and-white' }
       } else {
         type = i % 3 === 0 ? 'pink' : i % 3 === 1 ? 'white' : 'pink-white'
       }
-      butterflies.push(
-        new Butterfly(
-          Math.random() * width,
-          Math.random() * height,
-          type
-        )
-      )
+
+      // Space initial positions gracefully across the viewport so they never overlap
+      let initX, initY
+      if (totalButterflies === 3) {
+        if (i === 0) {
+          initX = width * 0.22
+          initY = height * 0.65
+        } else if (i === 1) {
+          initX = width * 0.78
+          initY = height * 0.38
+        } else {
+          initX = width * 0.50
+          initY = height * 0.82
+        }
+      } else {
+        initX = ((i + 0.5) / totalButterflies) * width
+        initY = Math.random() * height
+      }
+
+      const b = new Butterfly(initX, initY, type)
+      b.wanderPhase = i * 42.5 + Math.random() * 5
+      b.flapTime = i * 3.8 + Math.random() * 2
+      butterflies.push(b)
     }
 
     // Mouse / touch interaction
@@ -372,40 +388,29 @@ export default function WhiteButterflies({ count = 20, mode = 'pink-and-white' }
       mousePos.y = null
     }
 
-    // Click/tap burst spawns butterflies
+    // Click/tap interaction: sparkle burst without adding more butterflies (strictly preserves count)
     const handleClick = (e) => {
       const clickX = e.clientX
       const clickY = e.clientY
 
-      if (mode === 'white') {
-        for (let i = 0; i < 2; i++) {
-          const b = new Butterfly(clickX, clickY, 'white')
-          b.vx = (Math.random() - 0.5) * 2.5
-          b.vy = -(Math.random() * 2 + 1.5)
-          butterflies.push(b)
-        }
-        for (let i = 0; i < 6; i++) {
-          sparkles.push(new Sparkle(clickX, clickY, 'white'))
-        }
-      } else {
-        const newPink = new Butterfly(clickX, clickY, 'pink')
-        newPink.vx = (Math.random() - 0.5) * 2.5
-        newPink.vy = -(Math.random() * 2 + 1.5)
-
-        const newWhite = new Butterfly(clickX, clickY, 'white')
-        newWhite.vx = (Math.random() - 0.5) * 2.5
-        newWhite.vy = -(Math.random() * 2 + 1.5)
-
-        butterflies.push(newPink, newWhite)
-
-        for (let i = 0; i < 5; i++) {
-          sparkles.push(new Sparkle(clickX, clickY, 'pink'))
-          sparkles.push(new Sparkle(clickX, clickY, 'white'))
-        }
+      const sparkleCount = 6
+      for (let i = 0; i < sparkleCount; i++) {
+        const color = mode === 'white' ? 'white' : (i % 2 === 0 ? 'pink' : 'pink-white')
+        sparkles.push(new Sparkle(clickX, clickY, color))
       }
 
-      if (butterflies.length > totalButterflies + 8) {
-        butterflies.splice(0, 2)
+      // Nearby butterflies gently flutter away with a pleasant impulse
+      for (let i = 0; i < butterflies.length; i++) {
+        const b = butterflies[i]
+        const dx = b.x - clickX
+        const dy = b.y - clickY
+        const dist = Math.hypot(dx, dy)
+        if (dist < 180 && dist > 0) {
+          b.vx += (dx / dist) * 1.6
+          b.vy += (dy / dist) * 1.6
+          b.isGliding = false
+          b.flapSpeed = 0.32
+        }
       }
     }
 

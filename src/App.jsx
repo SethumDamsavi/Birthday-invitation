@@ -29,7 +29,7 @@ function App() {
       <>
         <CustomCursor />
         <div className="mesh-bg" />
-        <WhiteButterflies count={16} mode="white" />
+        <WhiteButterflies count={3} mode="white" />
         <FloatingPetals />
         <EnvelopeIntro onClick={handleEnvelopeClick} />
       </>
@@ -40,7 +40,7 @@ function App() {
     <>
       <CustomCursor />
       <div className="mesh-bg" />
-      <WhiteButterflies count={20} mode="pink-and-white" />
+      <WhiteButterflies count={3} mode="pink-and-white" />
       <FloatingPetals />
       
       <div className="paper-strip-wrapper">

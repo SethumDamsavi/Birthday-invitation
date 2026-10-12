@@ -434,21 +434,68 @@ body {
 }
 .envelope.open .css-wax-seal { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
 
-@media (max-width: 600px) {
-  .intro-name { font-size: 4.5rem; margin-bottom: -10px; }
-  .intro-age { font-size: 3.5rem; margin-top: -30px; margin-right: 5px; }
+@media (max-width: 768px) {
+  .envelope-intro-screen {
+    justify-content: flex-start;
+    padding: max(40px, 6vh) 15px max(25px, 4vh);
+  }
+  .intro-text-section {
+    margin-top: 0;
+    margin-bottom: 12px;
+    width: 100%;
+    flex-shrink: 0;
+  }
+  .intro-header {
+    margin-top: 0;
+    margin-bottom: 8px;
+  }
+  .intro-name { 
+    font-size: 4.5rem; 
+    margin-bottom: -10px; 
+  }
+  .intro-age { 
+    font-size: 3.5rem; 
+    margin-top: -30px; 
+    margin-right: 5px; 
+  }
   .intro-invited { font-size: 0.7rem; letter-spacing: 3px; margin-bottom: 5px; }
-  .intro-quote-modern { padding: 15px 20px; border-radius: 15px; width: 95%; }
+  .intro-quote-modern { padding: 14px 20px; border-radius: 15px; width: 95%; max-width: 420px; }
   .quote-word { font-size: 0.85rem; line-height: 1.5; }
+  .intro-envelope-container {
+    margin-top: auto;
+    margin-bottom: auto;
+    flex-shrink: 0;
+  }
   .envelope { width: 300px; height: 190px; }
   .flap-flowers { width: 40px; bottom: 30px; }
   .css-wax-seal { width: 50px; height: 50px; }
   .css-wax-seal span { font-size: 1.6rem; }
   .css-monogram { width: 45px; height: 45px; bottom: 10px; right: 10px; }
   .css-monogram span { font-size: 1.4rem; }
-  .intro-floral-top { width: 60vw; top: -15px; left: -15px; max-width: 300px; }
-  .intro-floral-bottom { width: 60vw; bottom: -15px; right: -15px; max-width: 300px; }
-  .envelope-click-prompt { margin-top: 18px; font-size: 1.05rem; }
+  .intro-floral-top { width: 55vw; top: -15px; left: -15px; max-width: 260px; }
+  .intro-floral-bottom { width: 55vw; bottom: -15px; right: -15px; max-width: 260px; }
+  .envelope-click-prompt { margin-top: 16px; font-size: 1.05rem; }
+}
+
+@media (max-width: 480px) {
+  .envelope-intro-screen {
+    padding-top: max(32px, 5vh);
+  }
+  .intro-name {
+    font-size: 4.1rem;
+    margin-bottom: -8px;
+  }
+  .intro-age {
+    font-size: 3.1rem;
+    margin-top: -26px;
+  }
+  .intro-quote-modern {
+    padding: 12px 16px;
+  }
+  .envelope {
+    width: 285px;
+    height: 180px;
+  }
 }
 
 /* ---------- Main Content ---------- */
