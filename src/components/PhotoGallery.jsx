@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X, ChevronLeft, ChevronRight, QrCode } from 'lucide-react'
+import { X, ChevronLeft, ChevronRight } from 'lucide-react'
 
 const photos = [
   { src: '', caption: 'Photo 1' },
@@ -36,7 +36,7 @@ export default function PhotoGallery() {
         whileInView="visible"
         viewport={{ once: true, amount: 0.1 }}
         variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
-        style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '2vw', width: '100%', maxWidth: '1200px', margin: '0 auto 40px' }}
+        style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '2vw', width: '100%', maxWidth: '1200px', margin: '0 auto' }}
       >
         {photos.map((photo, i) => (
           <motion.div 
@@ -49,31 +49,6 @@ export default function PhotoGallery() {
             <span style={{ fontFamily: 'var(--font-sans)', color: 'var(--pink-400)', fontSize: '0.9rem', letterSpacing: '2px', textTransform: 'uppercase' }}>Empty Frame</span>
           </motion.div>
         ))}
-      </motion.div>
-
-      {/* Modern QR Code Section */}
-      <motion.div 
-        className="qr-banner-container"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-      >
-        <div className="qr-text-content">
-          <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '15px' }}>
-            <QrCode size={40} color="var(--pink-500)" strokeWidth={1.5} />
-            <h3 style={{ margin: 0, fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.8rem, 3vw, 2.8rem)', color: 'var(--pink-600)' }}>View Full Gallery</h3>
-          </div>
-          <p style={{ margin: 0, fontFamily: 'var(--font-sans)', fontSize: 'clamp(0.9rem, 1.5vw, 1.1rem)', color: 'var(--text-medium)', textTransform: 'uppercase', letterSpacing: '1px' }}>
-            SCAN TO SEE ALL MEMORIES
-          </p>
-        </div>
-        
-        <motion.div 
-          className="qr-image-wrapper"
-          whileHover={{ scale: 1.05 }}
-        >
-          <img src="/images/qr-code.png" alt="Scan to view full gallery" style={{ width: '100%', display: 'block' }} />
-        </motion.div>
       </motion.div>
 
       {/* Lightbox */}

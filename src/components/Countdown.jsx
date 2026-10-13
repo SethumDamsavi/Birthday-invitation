@@ -10,8 +10,8 @@ export default function Countdown() {
   })
 
   useEffect(() => {
-    // Set target date to November 22, 2026
-    const targetDate = new Date('November 22, 2026 00:00:00').getTime()
+    // Set target date to November 22, 2026 at 4:00 PM
+    const targetDate = new Date('November 22, 2026 16:00:00').getTime()
 
     const interval = setInterval(() => {
       const now = new Date().getTime()

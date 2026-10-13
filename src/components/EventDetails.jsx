@@ -53,7 +53,7 @@ export default function EventDetails() {
           </motion.div>
           
           <h3 className="event-title-minimal" style={{ color: 'var(--pink-600)', marginBottom: '5px' }}>Birthday Party</h3>
-          <p className="event-time-minimal" style={{ color: 'var(--text-medium)', fontSize: '1.5rem', marginBottom: '20px' }}>6:00 PM</p>
+          <p className="event-time-minimal" style={{ color: 'var(--text-medium)', fontSize: '1.5rem', marginBottom: '20px' }}>4:00 PM</p>
           
           <div style={{ background: 'var(--pink-50)', padding: '15px 25px', borderRadius: '20px', width: '100%', marginBottom: '30px' }}>
             <p className="event-location-minimal" style={{ margin: 0, color: 'var(--pink-600)', fontWeight: '700', letterSpacing: '1px' }}>THE FALCON</p>
