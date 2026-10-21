@@ -138,7 +138,6 @@ export default function EnvelopeIntro({ onClick }) {
               className="gold-rose-seal-img" 
               alt="Antique Gold Rose Wax Seal" 
             />
-            <span className="gold-seal-gleam" />
           </div>
         </div>
 

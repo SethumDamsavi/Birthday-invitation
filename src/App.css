@@ -401,12 +401,22 @@ body {
   height: 240px; 
   perspective: 1400px; 
   border-radius: 6px;
-  background: #fbf8f2;
+  background: #faf6ee;
   box-shadow: 
-    0 28px 55px -12px rgba(85, 55, 45, 0.32), 
-    0 12px 24px -6px rgba(0, 0, 0, 0.12),
-    0 0 0 1px rgba(255, 255, 255, 0.85) inset;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+    0 32px 65px -14px rgba(80, 50, 40, 0.36), 
+    0 14px 28px -6px rgba(0, 0, 0, 0.14),
+    0 2px 6px rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(255, 255, 255, 0.9) inset;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s ease;
+  transform-style: preserve-3d;
+}
+
+.intro-envelope-container:hover .envelope {
+  transform: translateY(-6px) rotateX(2.5deg);
+  box-shadow: 
+    0 40px 75px -16px rgba(80, 50, 40, 0.42), 
+    0 18px 32px -8px rgba(0, 0, 0, 0.18),
+    0 0 0 1px rgba(255, 255, 255, 0.95) inset;
 }
 
 .envelope::after {
@@ -420,7 +430,7 @@ body {
   position: absolute; inset: 0; 
   background: #ede4d3; 
   border-radius: 6px; 
-  box-shadow: inset 0 26px 45px rgba(115, 85, 68, 0.28); 
+  box-shadow: inset 0 28px 48px rgba(115, 85, 68, 0.3); 
 }
 
 /* Royal Invitation Letter inside */
@@ -483,21 +493,21 @@ body {
 }
 .envelope-front-left {
   position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-  background: linear-gradient(135deg, #fcfaf5 0%, #ede6d7 100%);
-  clip-path: polygon(0 0, 52% 54%, 0 100%);
-  filter: drop-shadow(2px 0 4px rgba(110, 85, 70, 0.1));
+  background: linear-gradient(135deg, #fdfcf9 0%, #ede5d5 100%);
+  clip-path: polygon(0 0, 50% 53%, 0 100%);
+  filter: drop-shadow(2px 0 5px rgba(100, 75, 60, 0.12));
 }
 .envelope-front-right {
   position: absolute; top: 0; right: 0; width: 100%; height: 100%;
-  background: linear-gradient(225deg, #fcfaf5 0%, #ede6d7 100%);
-  clip-path: polygon(100% 0, 48% 54%, 100% 100%);
-  filter: drop-shadow(-2px 0 4px rgba(110, 85, 70, 0.1));
+  background: linear-gradient(225deg, #fdfcf9 0%, #ede5d5 100%);
+  clip-path: polygon(100% 0, 50% 53%, 100% 100%);
+  filter: drop-shadow(-2px 0 5px rgba(100, 75, 60, 0.12));
 }
 .envelope-front-bottom {
   position: absolute; bottom: 0; left: 0; width: 100%; height: 100%;
-  background: linear-gradient(0deg, #eae0cf 0%, #faf6ee 100%);
-  clip-path: polygon(0 100%, 50% 50%, 100% 100%);
-  filter: drop-shadow(0 -4px 10px rgba(120, 95, 80, 0.2));
+  background: linear-gradient(0deg, #e7ddcb 0%, #fcfaf4 100%);
+  clip-path: polygon(0 100%, 50% 49%, 100% 100%);
+  filter: drop-shadow(0 -5px 12px rgba(110, 85, 70, 0.22));
 }
 
 /* Realistic 3D Folding Flap with Lace Trim */
@@ -507,7 +517,7 @@ body {
   transform-style: preserve-3d;
   transition: transform 1s cubic-bezier(0.34, 1.1, 0.64, 1);
   z-index: 4;
-  filter: drop-shadow(0 12px 22px rgba(95, 70, 55, 0.35));
+  filter: drop-shadow(0 14px 24px rgba(90, 65, 50, 0.38));
 }
 .envelope.open .envelope-flap { 
   transform: rotateX(180deg); 
@@ -519,6 +529,7 @@ body {
   position: absolute; inset: 0; width: 100%; height: 100%;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+  overflow: hidden;
 }
 .flap-face-front {
   transform: rotateX(0deg);
@@ -537,12 +548,12 @@ body {
 .flap-lace-trim {
   position: absolute; 
   top: 0; 
-  left: -2%; 
-  width: 104%; 
-  height: 104%;
+  left: 0; 
+  width: 100%; 
+  height: 100%;
   object-fit: fill; 
   pointer-events: none;
-  filter: drop-shadow(0 4px 6px rgba(90, 65, 50, 0.22));
+  filter: drop-shadow(0 4px 6px rgba(90, 65, 50, 0.25));
 }
 
 .flap-crease-shadow {
@@ -563,16 +574,19 @@ body {
   top: 61%; 
   left: 50%; 
   transform: translate(-50%, -46%);
-  width: 82px; 
-  height: 82px; 
+  width: 84px; 
+  height: 84px; 
   z-index: 5;
   cursor: pointer;
-  transition: transform 0.4s cubic-bezier(0.34, 1.15, 0.64, 1), filter 0.4s ease, opacity 0.35s ease;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  transition: transform 0.4s cubic-bezier(0.34, 1.2, 0.64, 1), filter 0.4s ease, opacity 0.35s ease;
 }
 
 .intro-envelope-container:hover .vintage-wax-seal {
-  transform: translate(-50%, -46%) scale(1.06);
-  filter: drop-shadow(0 14px 26px rgba(110, 65, 25, 0.65)) drop-shadow(0 0 18px rgba(245, 195, 95, 0.55));
+  transform: translate(-50%, -46%) scale(1.08) rotate(-1.5deg);
+  filter: drop-shadow(0 16px 30px rgba(95, 55, 20, 0.65)) drop-shadow(0 0 18px rgba(245, 195, 95, 0.6));
 }
 
 .envelope.open .vintage-wax-seal {
@@ -586,21 +600,10 @@ body {
   height: 100%;
   object-fit: contain;
   display: block;
-  filter: drop-shadow(0 10px 20px rgba(85, 55, 25, 0.52)) drop-shadow(0 2px 5px rgba(0, 0, 0, 0.2));
-}
-
-.gold-seal-gleam {
-  position: absolute; inset: 0; border-radius: 50%;
-  background: linear-gradient(135deg, transparent 35%, rgba(255, 255, 255, 0.45) 50%, transparent 65%);
-  background-size: 250% 250%;
-  animation: sealGleamSweep 4.5s ease-in-out infinite;
+  background: transparent !important;
+  border: none !important;
+  filter: drop-shadow(0 10px 18px rgba(75, 45, 18, 0.55)) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.25));
   pointer-events: none;
-  mix-blend-mode: overlay;
-}
-
-@keyframes sealGleamSweep {
-  0%, 60% { background-position: -100% -100%; }
-  100% { background-position: 200% 200%; }
 }
 
 .prompt-sparkle {
