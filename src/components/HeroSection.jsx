@@ -48,8 +48,13 @@ export default function HeroSection() {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.8, type: "spring", bounce: 0.3 }}
         >
-          <div className="arch-frame" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--pink-100)' }}>
-            <span style={{ fontFamily: 'var(--font-sans)', color: 'var(--pink-400)', fontSize: '0.9rem', letterSpacing: '2px', textTransform: 'uppercase' }}>Photo Coming Soon</span>
+          <div className="arch-frame">
+            <img 
+              src="/images/moments/moment-07.jpg" 
+              alt="Raveesha's 21st Birthday" 
+              className="hero-arch-img"
+              loading="eager"
+            />
           </div>
         </motion.div>
       </div>

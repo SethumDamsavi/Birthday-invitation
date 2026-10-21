@@ -22,7 +22,7 @@ export default function CustomCursor() {
     }
 
     const handleMouseOver = (e) => {
-      if (e.target.closest('button, a, input, select, textarea, .gallery-item, .intro-envelope-container, .css-wax-seal')) {
+      if (e.target.closest('button, a, input, select, textarea, .gallery-item, .intro-envelope-container, .vintage-wax-seal, .css-wax-seal, .envelope')) {
         setIsHovering(true)
       } else {
         setIsHovering(false)
