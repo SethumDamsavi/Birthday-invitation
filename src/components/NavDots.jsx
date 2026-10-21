@@ -5,7 +5,7 @@ const sections = [
   { id: 'quote', title: 'Message' },
   { id: 'countdown', title: 'Countdown' },
   { id: 'event', title: 'Event Details' },
-  { id: 'gallery', title: 'Photos' },
+  { id: 'gallery', title: 'Memories' },
   { id: 'timeline', title: 'Schedule' },
   { id: 'rsvp', title: 'RSVP' },
 ]

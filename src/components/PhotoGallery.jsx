@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ChevronLeft, ChevronRight, Maximize2, X, Play, Pause, Sparkles } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Maximize2, X, Play, Pause } from 'lucide-react'
 
 const photos = [
   {
@@ -297,16 +297,17 @@ export default function PhotoGallery() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.7 }}
+        style={{ textAlign: 'center', marginBottom: '35px' }}
       >
-        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-          <Sparkles size={16} color="var(--pink-500)" />
-          <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.8rem', letterSpacing: '3px', textTransform: 'uppercase', color: 'var(--pink-500)', fontWeight: 600 }}>
-            Memories in Bloom
-          </span>
-          <Sparkles size={16} color="var(--pink-500)" />
-        </div>
-        <h2 className="gallery-title">Birthday Shoot</h2>
-        <p className="gallery-subtitle">A glimpse into the 21st celebration</p>
+        <h2 
+          className="timeline-title-minimal"
+          style={{ color: 'var(--pink-600)', margin: '0 0 10px 0', lineHeight: '1.2' }}
+        >
+          Childhood Memories
+        </h2>
+        <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.9rem', color: 'var(--pink-400)', letterSpacing: '4px', textTransform: 'uppercase', margin: 0, fontWeight: '600' }}>
+          Treasured moments & growing up to 21
+        </p>
       </motion.div>
 
       {/* Stage Carousel */}
