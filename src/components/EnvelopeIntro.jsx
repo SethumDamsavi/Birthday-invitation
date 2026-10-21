@@ -147,7 +147,7 @@ export default function EnvelopeIntro({ onClick }) {
           animate={{ opacity: opened ? 0 : 0.9 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          <span className="prompt-sparkle">✨</span> Tap the seal to open <span className="prompt-sparkle">✨</span>
+          Tap the seal to open
         </motion.p>
       </motion.div>
     </div>
