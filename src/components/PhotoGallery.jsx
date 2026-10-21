@@ -129,15 +129,44 @@ export default function PhotoGallery() {
   const [lightbox, setLightbox] = useState(null)
   const [isAutoPlay, setIsAutoPlay] = useState(true)
   const [isHovered, setIsHovered] = useState(false)
+  const [isInView, setIsInView] = useState(false)
   const thumbnailsRef = useRef(null)
+  const sectionRef = useRef(null)
 
-  // Scroll active thumbnail smoothly into view
+  // Track if gallery section is actually visible in the viewport
   useEffect(() => {
-    if (thumbnailsRef.current) {
-      const activeEl = thumbnailsRef.current.children[currentIndex]
-      if (activeEl) {
-        activeEl.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' })
-      }
+    const el = sectionRef.current
+    if (!el) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting)
+      },
+      { threshold: 0.15 }
+    )
+
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+
+  // Scroll active thumbnail smoothly within the horizontal strip ONLY (NEVER moving the window or page)
+  useEffect(() => {
+    const container = thumbnailsRef.current
+    if (!container) return
+
+    const activeEl = container.children[currentIndex]
+    if (activeEl) {
+      const containerRect = container.getBoundingClientRect()
+      const activeRect = activeEl.getBoundingClientRect()
+
+      // Calculate how far activeEl is from the center of the thumbnail container
+      const currentRelativeLeft = activeRect.left - containerRect.left
+      const targetOffset = currentRelativeLeft - (container.clientWidth / 2) + (activeEl.clientWidth / 2)
+
+      container.scrollBy({
+        left: targetOffset,
+        behavior: 'smooth',
+      })
     }
   }, [currentIndex])
 
@@ -167,14 +196,14 @@ export default function PhotoGallery() {
     setLightbox(i => (i + 1) % photos.length)
   }
 
-  // Autoplay timer
+  // Autoplay timer - only runs when gallery is in view, autoplay enabled, not hovered, and not in lightbox
   useEffect(() => {
-    if (!isAutoPlay || isHovered || lightbox !== null) return
+    if (!isAutoPlay || !isInView || isHovered || lightbox !== null) return
     const timer = setInterval(() => {
       setCurrentIndex(i => (i + 1) % photos.length)
-    }, 4200)
+    }, 4500)
     return () => clearInterval(timer)
-  }, [isAutoPlay, isHovered, lightbox])
+  }, [isAutoPlay, isInView, isHovered, lightbox])
 
   // Keyboard navigation
   useEffect(() => {
@@ -260,7 +289,7 @@ export default function PhotoGallery() {
   }
 
   return (
-    <section id="gallery" className="gallery-section">
+    <section id="gallery" className="gallery-section" ref={sectionRef}>
       {/* Header */}
       <motion.div 
         className="gallery-header"

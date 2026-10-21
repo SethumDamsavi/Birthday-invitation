@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 import CustomCursor from './components/CustomCursor'
 import EnvelopeIntro from './components/EnvelopeIntro'
@@ -20,8 +20,14 @@ import NavDots from './components/NavDots'
 function App() {
   const [envelopeOpen, setEnvelopeOpen] = useState(false)
 
+  // Ensure scroll is at top upon initial load and whenever envelope opens
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+  }, [envelopeOpen])
+
   const handleEnvelopeClick = () => {
     setEnvelopeOpen(true)
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
   }
 
   if (!envelopeOpen) {
