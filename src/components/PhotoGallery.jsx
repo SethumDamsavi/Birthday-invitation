@@ -366,16 +366,11 @@ export default function PhotoGallery() {
               >
                 <img src={photo.src} alt={photo.title} loading="lazy" />
 
-                {/* Badges on active card */}
+                {/* Zoom hint on active card */}
                 {isActive && (
-                  <>
-                    <div className="carousel-badge">
-                      {String(i + 1).padStart(2, '0')} / {String(photos.length).padStart(2, '0')}
-                    </div>
-                    <div className="carousel-zoom-hint" title="Click to view full screen">
-                      <Maximize2 size={16} />
-                    </div>
-                  </>
+                  <div className="carousel-zoom-hint" title="Click to view full screen">
+                    <Maximize2 size={16} />
+                  </div>
                 )}
               </motion.div>
             )
