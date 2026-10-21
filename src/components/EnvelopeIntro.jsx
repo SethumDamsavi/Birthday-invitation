@@ -131,12 +131,12 @@ export default function EnvelopeIntro({ onClick }) {
             </div>
           </div>
           
-          {/* Antique Gold Wax Seal with Embossed Blooming Rose */}
+          {/* Luxury Metallic Rose Gold Wax Seal with Embossed Blooming Rose */}
           <div className="vintage-wax-seal">
             <img 
-              src="/images/gold-rose-seal.png" 
+              src="/images/rosegold-rose-seal.png" 
               className="gold-rose-seal-img" 
-              alt="Antique Gold Rose Wax Seal" 
+              alt="Rose Gold Rose Wax Seal" 
             />
           </div>
         </div>
@@ -144,10 +144,10 @@ export default function EnvelopeIntro({ onClick }) {
         <motion.p 
           className="envelope-click-prompt"
           initial={{ opacity: 0 }}
-          animate={{ opacity: opened ? 0 : 0.85 }}
+          animate={{ opacity: opened ? 0 : 0.9 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          <span className="prompt-sparkle">✨</span> Tap the gold seal to open <span className="prompt-sparkle">✨</span>
+          <span className="prompt-sparkle">✨</span> Tap the seal to open <span className="prompt-sparkle">✨</span>
         </motion.p>
       </motion.div>
     </div>

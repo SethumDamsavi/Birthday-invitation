@@ -354,7 +354,7 @@ body {
   font-family: var(--font-serif);
   font-style: italic;
   font-size: 1.15rem;
-  color: #8c5d4b;
+  color: #aa506e;
   letter-spacing: 0.5px;
   text-align: center;
   pointer-events: none;
@@ -363,10 +363,10 @@ body {
 }
 
 .intro-envelope-container:hover .envelope-click-prompt {
-  color: #684136;
+  color: #8c3854;
 }
 
-/* ---------- Dreamy Golden Bokeh Lights ---------- */
+/* ---------- Dreamy Golden & Rose Bokeh Lights ---------- */
 .intro-bokeh-container {
   position: absolute;
   inset: 0;
@@ -377,7 +377,7 @@ body {
 .bokeh-orb {
   position: absolute;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 235, 190, 0.75) 0%, rgba(255, 215, 150, 0.3) 45%, transparent 70%);
+  background: radial-gradient(circle, rgba(255, 235, 245, 0.8) 0%, rgba(255, 195, 215, 0.35) 45%, transparent 70%);
   filter: blur(14px);
   animation: floatBokeh 10s ease-in-out infinite alternate;
   pointer-events: none;
@@ -390,23 +390,23 @@ body {
 
 @keyframes floatBokeh {
   0% { transform: translateY(0) scale(1); opacity: 0.45; }
-  50% { transform: translateY(-24px) scale(1.18); opacity: 0.8; }
+  50% { transform: translateY(-24px) scale(1.18); opacity: 0.85; }
   100% { transform: translateY(18px) scale(0.92); opacity: 0.55; }
 }
 
-/* Vintage Luxury Cream Envelope */
+/* Luxury Pink & White Romantic Envelope */
 .envelope { 
   position: relative; 
   width: 360px; 
   height: 240px; 
   perspective: 1400px; 
-  border-radius: 6px;
-  background: #faf6ee;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #fff5f8 0%, #fde7ee 45%, #f9d8e2 100%);
   box-shadow: 
-    0 32px 65px -14px rgba(80, 50, 40, 0.36), 
-    0 14px 28px -6px rgba(0, 0, 0, 0.14),
-    0 2px 6px rgba(0, 0, 0, 0.08),
-    0 0 0 1px rgba(255, 255, 255, 0.9) inset;
+    0 32px 65px -14px rgba(185, 95, 125, 0.32), 
+    0 14px 28px -6px rgba(140, 60, 85, 0.14), 
+    0 2px 6px rgba(140, 60, 85, 0.08), 
+    0 0 0 1px rgba(255, 255, 255, 0.95) inset;
   transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s ease;
   transform-style: preserve-3d;
 }
@@ -414,31 +414,31 @@ body {
 .intro-envelope-container:hover .envelope {
   transform: translateY(-6px) rotateX(2.5deg);
   box-shadow: 
-    0 40px 75px -16px rgba(80, 50, 40, 0.42), 
-    0 18px 32px -8px rgba(0, 0, 0, 0.18),
-    0 0 0 1px rgba(255, 255, 255, 0.95) inset;
+    0 40px 75px -16px rgba(185, 95, 125, 0.38), 
+    0 18px 32px -8px rgba(140, 60, 85, 0.18), 
+    0 0 0 1px #ffffff inset;
 }
 
 .envelope::after {
   content: ''; position: absolute; inset: 0; z-index: 10; pointer-events: none;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-  opacity: 0.04; mix-blend-mode: multiply; border-radius: 6px;
+  opacity: 0.035; mix-blend-mode: multiply; border-radius: 8px;
 }
 
-/* Interior pocket of the envelope */
+/* Interior pocket of the envelope (Blush Rose Velvet) */
 .envelope-back { 
   position: absolute; inset: 0; 
-  background: #ede4d3; 
-  border-radius: 6px; 
-  box-shadow: inset 0 28px 48px rgba(115, 85, 68, 0.3); 
+  background: #f7dce4; 
+  border-radius: 8px; 
+  box-shadow: inset 0 28px 48px rgba(165, 80, 110, 0.28); 
 }
 
-/* Royal Invitation Letter inside */
+/* Royal Invitation Letter inside (Pure Snow White & Rose Accents) */
 .envelope-letter {
   position: absolute; bottom: 10px; left: 14px; right: 14px; height: 190px;
-  background: #fffdf9; 
-  border-radius: 4px; z-index: 2;
-  box-shadow: 0 -4px 14px rgba(85, 65, 50, 0.1);
+  background: #ffffff; 
+  border-radius: 6px; z-index: 2;
+  box-shadow: 0 -4px 14px rgba(150, 70, 95, 0.1);
   display: flex; align-items: center; justify-content: center;
   transition: transform 1s cubic-bezier(0.34, 1.05, 0.64, 1);
   transition-delay: 0.7s;
@@ -446,15 +446,15 @@ body {
 .envelope.open .envelope-letter { transform: translateY(-170px); z-index: 5; }
 
 .letter-content { 
-  border: 1px solid #c9a456;
+  border: 1px solid #f0a8bc;
   width: 92%; height: 90%; 
   display: flex; align-items: center; justify-content: center; 
-  background: linear-gradient(135deg, #fffdfa 0%, #fbf5eb 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #fff7f9 100%);
   padding: 8px;
-  box-shadow: inset 0 0 12px rgba(212, 175, 55, 0.12);
+  box-shadow: inset 0 0 12px rgba(240, 168, 188, 0.15);
 }
 .letter-inner-border {
-  border: 1px dashed rgba(201, 164, 86, 0.55);
+  border: 1px dashed rgba(220, 120, 150, 0.55);
   width: 100%; height: 100%;
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   padding: 6px;
@@ -465,64 +465,64 @@ body {
   font-size: 0.82rem;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: #a17865;
+  color: #b55877;
   margin-bottom: 2px;
 }
 .letter-name {
   font-family: var(--font-script);
   font-size: 2.5rem;
-  color: #ba4f69;
+  color: #d14972;
   line-height: 1.1;
   margin: 0;
-  text-shadow: 0 2px 8px rgba(186, 79, 105, 0.25);
+  text-shadow: 0 2px 8px rgba(209, 73, 114, 0.25);
 }
 .letter-celebration {
   font-family: var(--font-serif);
   font-size: 0.85rem;
   letter-spacing: 1.8px;
-  color: #8c6a59;
+  color: #9d4865;
   margin-top: 3px;
   font-style: italic;
 }
 
-/* Front folded triangles (cream linen paper with real paper shadows) */
+/* Front folded triangles (Soft White & Blush Pink Paper Folds) */
 .envelope-front { 
   position: absolute; inset: 0; 
-  border-radius: 6px; z-index: 3;
+  border-radius: 8px; z-index: 3;
   pointer-events: none; overflow: hidden;
 }
 .envelope-front-left {
   position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-  background: linear-gradient(135deg, #fdfcf9 0%, #ede5d5 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #fce7ed 100%);
   clip-path: polygon(0 0, 50% 53%, 0 100%);
-  filter: drop-shadow(2px 0 5px rgba(100, 75, 60, 0.12));
+  filter: drop-shadow(2px 0 5px rgba(180, 90, 115, 0.12));
 }
 .envelope-front-right {
   position: absolute; top: 0; right: 0; width: 100%; height: 100%;
-  background: linear-gradient(225deg, #fdfcf9 0%, #ede5d5 100%);
+  background: linear-gradient(225deg, #ffffff 0%, #fce7ed 100%);
   clip-path: polygon(100% 0, 50% 53%, 100% 100%);
-  filter: drop-shadow(-2px 0 5px rgba(100, 75, 60, 0.12));
+  filter: drop-shadow(-2px 0 5px rgba(180, 90, 115, 0.12));
 }
 .envelope-front-bottom {
   position: absolute; bottom: 0; left: 0; width: 100%; height: 100%;
-  background: linear-gradient(0deg, #e7ddcb 0%, #fcfaf4 100%);
+  background: linear-gradient(0deg, #f8d5df 0%, #ffffff 100%);
   clip-path: polygon(0 100%, 50% 49%, 100% 100%);
-  filter: drop-shadow(0 -5px 12px rgba(110, 85, 70, 0.22));
+  filter: drop-shadow(0 -5px 12px rgba(170, 80, 105, 0.2));
 }
 
-/* Realistic 3D Folding Flap with Lace Trim */
+/* Realistic 3D Folding Flap with Pure Snow White Lace Trim */
 .envelope-flap {
   position: absolute; top: 0; left: 0; width: 100%; height: 62%;
   transform-origin: top center;
   transform-style: preserve-3d;
   transition: transform 1s cubic-bezier(0.34, 1.1, 0.64, 1);
   z-index: 4;
-  filter: drop-shadow(0 14px 24px rgba(90, 65, 50, 0.38));
+  filter: drop-shadow(0 14px 24px rgba(160, 70, 95, 0.32));
 }
 .envelope.open .envelope-flap { 
   transform: rotateX(180deg); 
   z-index: 1; 
-  filter: drop-shadow(0 -10px 18px rgba(100, 75, 60, 0.22)); 
+  filter: drop-shadow(0 -10px 18px rgba(160, 70, 95, 0.22)); 
 }
 
 .flap-face {
@@ -541,8 +541,8 @@ body {
 .flap-paper-triangle {
   position: absolute; inset: 0; width: 100%; height: 100%;
   clip-path: polygon(0 0, 100% 0, 50% 98%);
-  background: linear-gradient(180deg, #fefdfb 0%, #f7f2e7 65%, #ede4d2 100%);
-  box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.95);
+  background: linear-gradient(180deg, #ffffff 0%, #fde6ed 65%, #f9d5df 100%);
+  box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.98);
 }
 
 .flap-lace-trim {
@@ -553,22 +553,22 @@ body {
   height: 100%;
   object-fit: fill; 
   pointer-events: none;
-  filter: drop-shadow(0 4px 6px rgba(90, 65, 50, 0.25));
+  filter: drop-shadow(0 4px 6px rgba(160, 75, 100, 0.22));
 }
 
 .flap-crease-shadow {
   position: absolute; top: 0; left: 0; width: 100%; height: 16px;
-  background: linear-gradient(180deg, rgba(115, 85, 65, 0.22) 0%, transparent 100%);
+  background: linear-gradient(180deg, rgba(160, 70, 95, 0.18) 0%, transparent 100%);
   pointer-events: none;
 }
 
 .flap-paper-triangle-back {
   position: absolute; inset: 0; width: 100%; height: 100%;
   clip-path: polygon(0 0, 100% 0, 50% 98%);
-  background: linear-gradient(0deg, #ece3d3 0%, #f9f5ec 100%);
+  background: linear-gradient(0deg, #f7dbe3 0%, #ffffff 100%);
 }
 
-/* Antique Gold Rose Wax Seal */
+/* Luxury Rose Gold Wax Seal */
 .vintage-wax-seal {
   position: absolute; 
   top: 61%; 
@@ -586,7 +586,7 @@ body {
 
 .intro-envelope-container:hover .vintage-wax-seal {
   transform: translate(-50%, -46%) scale(1.08) rotate(-1.5deg);
-  filter: drop-shadow(0 16px 30px rgba(95, 55, 20, 0.65)) drop-shadow(0 0 18px rgba(245, 195, 95, 0.6));
+  filter: drop-shadow(0 16px 30px rgba(170, 60, 90, 0.65)) drop-shadow(0 0 18px rgba(255, 175, 200, 0.65));
 }
 
 .envelope.open .vintage-wax-seal {
@@ -602,7 +602,7 @@ body {
   display: block;
   background: transparent !important;
   border: none !important;
-  filter: drop-shadow(0 10px 18px rgba(75, 45, 18, 0.55)) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.25));
+  filter: drop-shadow(0 10px 18px rgba(140, 50, 75, 0.52)) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.18));
   pointer-events: none;
 }
 
